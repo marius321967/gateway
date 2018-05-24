@@ -1,3 +1,5 @@
+const sendWsMessage = require('../broadcast/sendWsMessage');
+
 /**
  * Send notification to all listeners of event (if any).
  * Resolves with null. Not expected to reject.
@@ -11,14 +13,13 @@ module.exports = (event, state) => {
         if (!listeners) 
             return resolve();
         // Notify all listeners.
-        for (let i = 0; i < listeners.length; i++) {
+        for (let i = 0; i < listeners.length; i++) 
             // Notify this listener.
-            listeners[i].send(JSON.stringify({
+            sendWsMessage({
                 type: 'event',
                 event: event.event,
                 data: event.data
-            }));
-        }
+            }, listeners[i]);
         return resolve();
     });
 };
