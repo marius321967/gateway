@@ -1,4 +1,6 @@
 const express = require('express');
+const state = require('./state');
+const notifyListeners = require('./services/listen/notifyListeners');
 
 /**
  * Setup listen server with Express.
@@ -7,10 +9,16 @@ const express = require('express');
 module.exports = () => {
     const app = express();
     app.use(express.json());
-    // Setup routes
-    app.post('/helloworld', (req, res) => {
-        console.log('received: '+req.body);
-        res.send({ msg: 'Hello World!' });
-    })
+    // Setup routes.
+    app.post('/event', (req, res) => {
+        notifyListeners(req.body, state)
+            .then(() => {
+                res.send({ code: 'OK' });
+            })
+            .catch(() => {
+                res.statusCode = 400;
+                res.send({ code: "INVALID_BODY" })
+            })
+    });
     return app;
 };
