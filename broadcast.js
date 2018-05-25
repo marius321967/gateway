@@ -5,6 +5,7 @@ const parseWsMessage = require('./services/broadcast/parseWsMessage');
 const registerListener = require('./services/broadcast/registerListener');
 const sendWsMessage = require('./services/broadcast/sendWsMessage');
 const authenticate = require('./services/auth/authenticate');
+const removeListener = require('./services/broadcast/removeListener');
 
 /**
  * Setup WebSocket boardcast server to distribute events to listeners.
@@ -39,6 +40,10 @@ module.exports = () => {
                     }, connection);
                 });
 
+        });
+        // Handle disconnect.
+        connection.on('close', () => {
+            removeListener(connection, state);
         });
     });
 
