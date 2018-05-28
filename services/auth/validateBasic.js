@@ -15,7 +15,7 @@ module.exports = (token) => {
 
             const tokens = data.toString().split( /(?:\r\n|\r|\n)/g );
             for (let i = 0; i < tokens.length; i++) 
-                if (token == tokens[i])
+                if (tokens[i].length >= 16 && token == tokens[i])
                     return resolve( {} );
             return reject(new Error('UNAUTHENTICATED'));
         });
