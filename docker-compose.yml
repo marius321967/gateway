@@ -1,0 +1,10 @@
+version: '2'
+services:
+  eventsrv:
+    image: "december-eventsrv"
+    build: .
+    volumes:
+      - "./tokens:/app/tokens"
+    ports:
+      - "8080:8080"
+      - "8081:8081"
