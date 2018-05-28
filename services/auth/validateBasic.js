@@ -9,7 +9,7 @@ const fs = require('fs');
  */
 module.exports = (token) => {
     return new Promise((resolve, reject) => {
-        fs.readFile('./tokens', (err, data) => {
+        fs.readFile('./tokens/tokens', (err, data) => {
             if (err)
                 return reject(new Error('ERR_SERVER'));
 
