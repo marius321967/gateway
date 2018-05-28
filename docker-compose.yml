@@ -1,7 +1,7 @@
 version: '2'
 services:
   eventsrv:
-    image: "december-eventsrv"
+    image: eventsrv:dev
     build: .
     volumes:
       - "./tokens:/app/tokens"
