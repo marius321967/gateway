@@ -22,6 +22,7 @@ module.exports = () => {
             .catch(err => {
                 const msg = err.message;
                 if (msg === 'UNAUTHENTICATED' || msg === 'AUTH_UNRECOGNIZED_SCHEME') {
+                    console.warn('Warning: unauthenticated request from IP '+req.connection.remoteAddress);
                     res.statusCode = 403;
                     return res.send({code: msg})
                 }
