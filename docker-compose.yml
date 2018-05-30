@@ -5,6 +5,9 @@ services:
     build: .
     volumes:
       - "./tokens:/app/tokens"
+      - "./certs:/app/certs"
     ports:
       - "12000:8080"
       - "12001:8081"
+    environment:
+      - "HTTPS_ENABLE=true"
