@@ -1,5 +1,6 @@
 const express = require('express');
 const state = require('./state');
+const determineServer = require('./determineServer');
 const notifyListeners = require('./services/listen/notifyListeners');
 const authenticate = require('./services/auth/authenticate');
 
@@ -30,5 +31,5 @@ module.exports = () => {
                 res.send({ code: "INVALID_BODY" })
             })
     });
-    return app;
+    return determineServer(app);
 };

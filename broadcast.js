@@ -1,6 +1,6 @@
 const WebSocket = require('ws');
-const http = require('http');
 const state = require('./state');
+const determineServer = require('./determineServer');
 const parseWsMessage = require('./services/broadcast/parseWsMessage');
 const registerListener = require('./services/broadcast/registerListener');
 const sendWsMessage = require('./services/broadcast/sendWsMessage');
@@ -11,7 +11,7 @@ const removeListener = require('./services/broadcast/removeListener');
  * Setup WebSocket boardcast server to distribute events to listeners.
  */
 module.exports = () => {
-    const server = http.createServer();
+    const server = determineServer();
     const wss = new WebSocket.Server({ server });
     
     wss.on('connection', (connection) => {
