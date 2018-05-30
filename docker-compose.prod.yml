@@ -1,0 +1,8 @@
+version: '2'
+services:
+  eventsrv:
+    ports:
+      - "11000:8080"
+      - "11001:8081"
+    environment:
+      - "HTTPS_ENABLE=true"

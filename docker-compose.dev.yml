@@ -1,0 +1,10 @@
+version: '2'
+services:
+  eventsrv:
+    image: eventsrv:dev
+    build: .
+    ports:
+      - "12000:8080"
+      - "12001:8081"
+    environment:
+      - "HTTPS_ENABLE=false"
