@@ -9,7 +9,7 @@ Your project should document the types of events that are passed through this se
 
 ### How to fire events?
 Send HTTP POST /event to the listen server with body:
-```json
+```
 {
     "event": "<type of event>",
     "data": ...
@@ -55,7 +55,7 @@ Possible error codes:
 - `UNAUTHENTICATED`
 
 Now when an event is fired, you will receive a message:
-```json
+```
 {
   "type": "event",
   "event": "<type of event>",
