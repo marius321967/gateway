@@ -1,7 +1,7 @@
 {
-  "name": "eventsrv",
+  "name": "gateway",
   "version": "0.0.1",
-  "description": "Server which allows submission and listening of events.",
+  "description": "Centralized data gateway service for IoT home system",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,8 +9,8 @@
     "dockerd": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build -d",
     "test": "node node_modules/mocha/bin/mocha --recursive"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Marius D",
+  "license": "MIT",
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-shallow-deep-equal": "^1.4.6",
