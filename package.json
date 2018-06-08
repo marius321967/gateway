@@ -1,7 +1,7 @@
 {
   "name": "gateway",
   "version": "0.0.1",
-  "description": "Centralized data gateway service for IoT home system",
+  "description": "Centralized data gateway service for IoT home",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
