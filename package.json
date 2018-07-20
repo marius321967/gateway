@@ -10,7 +10,15 @@
     "test": "node node_modules/mocha/bin/mocha --recursive"
   },
   "author": "Marius D",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marius321967/gateway.git"
+  },
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marius321967/gateway/issues"
+  },
+  "homepage": "https://github.com/marius321967/gateway#readme",
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-shallow-deep-equal": "^1.4.6",
