@@ -1,9 +1,9 @@
 const chai = require('chai');
 const assert = chai.assert;
-const parseWsMessage = require('../../services/broadcast/parseWsMessage');
+const parseWsMessage = require('../../services/listen/parseWsMessage');
 chai.use(require('chai-shallow-deep-equal'));
 
-describe('broadcast/parseWsMessage', () => {
+describe('listen/parseWsMessage', () => {
     it('Given invalid JSON, should throw with INVALID_SYNTAX',
     done => {
         // Given
