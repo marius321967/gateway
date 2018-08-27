@@ -1,9 +1,9 @@
 const chai = require('chai');
 const assert = chai.assert;
-const registerListener = require('../../services/broadcast/registerListener');
+const registerListener = require('../../services/listen/registerListener');
 chai.use(require('chai-shallow-deep-equal'));
 
-describe('broadcast/registerListener', () => {
+describe('listen/registerListener', () => {
     it('Given multiple events, should register them & not remove existing listeners',
     done => {
         // Given 
