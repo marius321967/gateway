@@ -1,6 +1,6 @@
-const validateBasic = require('./validateBasic');
+const authenticateBasic = require('./authenticateBasic');
 const schemes = {
-    Basic: validateBasic
+    Basic: authenticateBasic
     // ...
     // eg. Bearer validateFirebase
 }
@@ -16,15 +16,19 @@ const schemes = {
  */
 module.exports = (credentials) => {
     return new Promise((resolve, reject) => {
+        // Validate credentials format.
         if (!credentials)
             return reject(new Error('UNAUTHENTICATED'));
         const parts = credentials.split(' ', 2);
-        const scheme = parts[0];
-        const token = parts[1];
+        const scheme = parts[0],
+              token = parts[1];
         if (!schemes[scheme])
             return reject(new Error('AUTH_UNRECOGNIZED_SCHEME'));
+        // Validate the token itself depending on the scheme.
         schemes[scheme](token)
-            .then(resolve)
+            .then(client => {
+                return resolve(client);
+            })
             .catch(() => {
                 return reject(new Error('UNAUTHENTICATED'));
             });
