@@ -1,7 +1,7 @@
 const sinon = require('sinon');
-const sendWsMessage = require('../../services/broadcast/sendWsMessage');
+const sendWsMessage = require('../../services/listen/sendWsMessage');
 
-describe('broadcast/sendWsMessage', () => {
+describe('listen/sendWsMessage', () => {
     it('Given message, should serialize & call send',
     done => {
         // Given 
