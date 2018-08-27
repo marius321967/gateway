@@ -1,7 +1,13 @@
-const listen = require('./listen');
-const broadcast = require('./broadcast');
+const setupHttp = require('./setupHttp');
+const setupWebsocket = require('./setupWebsocket');
+const express = require('express');
 
-const listenSrv = listen();
-const broadcastSrv = broadcast();
-listenSrv.listen(8080);
-broadcastSrv.httpSrv.listen(8081);
+// Initialize server.
+const app = express();
+// Setup HTTP routes.
+setupHttp(app);
+// Setup Websocket module on the same server.
+setupWebsocket(app);
+// Start server.
+console.log('Listening on port 8000')
+app.listen(8000);
