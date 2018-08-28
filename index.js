@@ -4,7 +4,7 @@ const express = require('express');
 
 // Initialize server.
 const app = express();
-// Setup HTTP routes.
+// Setup HTTP on the server.
 setupHttp(app);
 // Setup Websocket module on the same server.
 setupWebsocket(app);
