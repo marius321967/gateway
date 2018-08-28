@@ -6,6 +6,8 @@ const routes = require('./routes');
  * Events will be provided via POST /event
  */
 module.exports = (app) => {
+    // Auto-parse JSON body on each POST request.
     app.use(express.json());
+    // Register routes on the given Express app.
     routes(app);
 };

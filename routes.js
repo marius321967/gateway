@@ -7,7 +7,10 @@ const pullStream = require('./routes/pullStream');
  * @param {*} app 
  */
 module.exports = (app) => {
+    // Route for pushing an event.
     app.post('/events', pushEvent);
+    // Route for pushing a stream.
     app.post('/streams', pushStream);
+    // Route for downloading a stream.
     app.get('/streams/:id', pullStream);
 }
