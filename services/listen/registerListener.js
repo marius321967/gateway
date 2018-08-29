@@ -3,15 +3,18 @@ const Listener = require('../../models/Listener');
 const listenerRepository = require ('../../state/listenerRepository');
 
 /**
- * In given state, add given webSocket connection as listener
- * to all requested events.
+ * Register listener to be notified to all given data types.
+ * 
+ * Assigns those types to the listener itself in dataTypes property.
+ * This is used to backtrack which data types the listener is 
+ * subscribed to.
+ * 
  * Resolves with null. Not expected to reject.
  * @param {Listener} listener 
- * @param {Object} events List of events to listen to.
- * @param {Object} state Root of /state.js
+ * @param {Object} types Lists of data type strings for each data category.
  * @return {Promise}
  */
-module.exports = (listener, types, state) => {
+module.exports = (listener, types) => {
     return new Promise((resolve, reject) => {
         // Register listener to events.
         // For each data category...
@@ -23,7 +26,8 @@ module.exports = (listener, types, state) => {
                 listenerRepository.addListener(listener, category, type);
             }
         }
-        listener.dataTypes = types; // Assign same list of data types to the listener, so we can backtrack.
+        // Assign the same list of data types to the listener itself, so we have a reverse reference.
+        listener.dataTypes = types; 
         return resolve();
     });
 };

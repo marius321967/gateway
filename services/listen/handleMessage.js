@@ -6,7 +6,7 @@ const authenticate = require('../auth/authenticate');
 const notifyListenerExistingStreams = require('../broadcast/notifyListenerExistingStreams');
 
 /**
- * Handle message send over WebSocket by the client/listener.
+ * Handle a message sent over WebSocket by the client/listener.
  * @param {Listener} listener The client who sent the message.
  * @param {String} rawMessage 
  */

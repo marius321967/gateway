@@ -1,6 +1,5 @@
 /**
- * Serialize and send message to given listener.
- * Serializes to JSON.
+ * Serialize to JSON and send message to given listener over websocket.
  * Resolves with null. Not expected to reject.
  * @param {Object} message The message to send.
  * @param {*} connection WebSocket connection.
