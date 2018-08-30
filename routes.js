@@ -3,8 +3,8 @@ const pushStream = require('./routes/pushStream');
 const pullStream = require('./routes/pullStream');
 
 /**
- * Express server app upon which to register the routes.
- * @param {*} app 
+ * Setup routes for clients to exchange data.
+ * @param {*} app The Express server upon which to register the routes.
  */
 module.exports = (app) => {
     // Route for pushing an event.
