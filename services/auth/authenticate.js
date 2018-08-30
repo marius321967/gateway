@@ -2,7 +2,8 @@ const authenticateBasic = require('./authenticateBasic');
 const schemes = {
     Basic: authenticateBasic
     // ...
-    // eg. Bearer validateFirebase
+    // Add your own custom token validators here.
+    // eg. Bearer: authenticateDynamicToken
 }
 
 /**
@@ -19,6 +20,7 @@ module.exports = (credentials) => {
         // Validate credentials format.
         if (!credentials)
             return reject(new Error('UNAUTHENTICATED'));
+        // Read authentication schema and token off the credentials.
         const parts = credentials.split(' ', 2);
         const scheme = parts[0],
               token = parts[1];

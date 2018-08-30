@@ -2,8 +2,9 @@ const express = require('express');
 const routes = require('./routes');
 
 /**
- * Setup listen server with Express.
- * Events will be provided via POST /event
+ * Configure the Express HTTP server.
+ * Enables JSON parsing for incoming requests and
+ * sets up all routes.
  */
 module.exports = (app) => {
     // Auto-parse JSON body on each POST request.
