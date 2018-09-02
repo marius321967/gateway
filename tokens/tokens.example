@@ -1,2 +1,14 @@
-the_token_1
-the_token_2
+{
+    "xyz": {
+        "name": "mariukas",
+        "types": {
+            "events": {
+                "temperature": { "read": true, "write": true },
+                "humidity": { "read": true }
+            },
+            "streams": {  
+                "video_feed": {"read": true, "write": true}
+            }
+        }
+    }
+}
