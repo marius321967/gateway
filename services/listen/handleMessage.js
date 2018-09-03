@@ -3,7 +3,7 @@ const verifyAuthorization = require('../auth/verifyAuthorization');
 const registerListener = require('./registerListener');
 const sendWsMessage = require('./sendWsMessage');
 const authenticate = require('../auth/authenticate');
-const notifyListenerExistingStreams = require('../broadcast/notifyListenerExistingStreams');
+const notifyListenerExistingStreams = require('../streams/notifyListenerExistingStreams');
 
 /**
  * Handle a message sent over WebSocket by the client/listener.
@@ -34,7 +34,7 @@ module.exports = (listener, rawMessage) => {
             // Send OK because we haven't jumped to catch().
             return sendWsMessage({
                 type: 'init',
-                code: 'OK'
+                payload: { code: 'OK' }
             }, listener.connection);
         })
         .then(() => {
@@ -48,7 +48,7 @@ module.exports = (listener, rawMessage) => {
                 type: 'init',
                 // This should hopefully be an error code from one of the services 
                 // and not a text.
-                code: err.message 
+                payload: { code: err.message }
             }, listener.connection);
         });
 };
