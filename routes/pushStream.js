@@ -1,6 +1,6 @@
 const authenticate = require('../services/auth/authenticate');
 const verifyAuthorization = require('../services/auth/verifyAuthorization');
-const handleNewStream = require('../services/broadcast/handleNewStream');
+const handleNewStream = require('../services/streams/handleNewStream');
 
 module.exports = (req, res) => {
     const metaEncoded = req.query.meta || '';
