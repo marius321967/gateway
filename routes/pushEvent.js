@@ -18,10 +18,10 @@ module.exports = (req, res) => {
                 'write');
         })
         .then(() => {
-            return notifyListeners('events', req.body.type, 
-            {
-                meta: req.body.meta,
-                data: req.body.data
+            return notifyListeners('events', req.body.type, 'event', 
+            { 
+                type: req.body.type, 
+                data: req.body.data 
             });
         })
         .then(() => {
