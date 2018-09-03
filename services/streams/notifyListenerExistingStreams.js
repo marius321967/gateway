@@ -1,6 +1,6 @@
 const activeStreamsRepository = require('../../state/activeStreamsRepository');
-const notifyListener = require('./notifyListener');
-const constructStreamNotification = require('./constructStreamNotification');
+const notifyListener = require('../broadcast/notifyListener');
+const constructStreamNotificationPayload = require('./constructStreamNotificationPayload');
 
 /**
  * Send notification to the listener about each existing stream.
@@ -14,7 +14,7 @@ module.exports = (listener) => {
         const streamsOfType = activeStreamsRepository.getStreamsByType(type);
         for (const streamIndex in streamsOfType) {
             const stream = streamsOfType[streamIndex];
-            notifyListener(listener, 'streams', type, constructStreamNotification(stream));
+            notifyListener(listener, 'stream', constructStreamNotificationPayload(stream));
         }
     }
 }
