@@ -1,4 +1,3 @@
-const state = require('../../state');
 const Listener = require('../../models/Listener');
 const listenerRepository = require ('../../state/listenerRepository');
 
