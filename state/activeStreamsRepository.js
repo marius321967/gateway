@@ -1,3 +1,8 @@
+/**
+ * Incoming streams must be kept in a repository so that new listeners are
+ * notified about already existing streams.
+ */
+
 const Stream = require('../models/Stream');
 const uuid = require('uuid');
 
